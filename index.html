@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women's Day Surprise</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('zzz.jpg');
+            background-size: cover;
+            background-position: center;
+            position: relative;
+        }
+
+        /* Dark overlay for better text visibility */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+
+        .container {
+            max-width: 1200px;
+            text-align: center;
+        }
+
+        h1 {
+            color: #ffffff;
+            font-size: 2.5em;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+            background-color: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(2px);
+        }
+
+        .photo-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .message {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            max-width: 600px;
+        }
+
+        .message p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: rgba(255, 105, 180, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, background-color 0.3s;
+            backdrop-filter: blur(2px);
+        }
+
+        .music-player:hover {
+            transform: scale(1.05);
+            background-color: rgba(255, 20, 147, 0.9);
+        }
+
+        #audioElement {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .photo-gallery {
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            }
+            
+            h1 {
+                font-size: 2em;
+            }
+            
+            .music-player {
+                bottom: 10px;
+                right: 10px;
+                padding: 8px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Happy Women's Day! 🌸</h1>
+        
+        <div class="photo-gallery">
+            <!-- Replace image sources with your photos -->
+            <div class="photo-item">
+                <img src="111.png" alt="Beautiful Moment 1">
+            </div>
+            <div class="photo-item">
+                <img src="222.png" alt="Beautiful Moment 2">
+            </div>
+            <div class="photo-item">
+                <img src="333.png" alt="Beautiful Moment 3">
+            </div>
+            <div class="photo-item">
+                <img src="444.jpg" alt="Beautiful Moment 4">
+            </div>
+        </div>
+
+        <div class="message">
+            <p>To the most amazing woman I know,<br>
+            Your strength, grace, and beauty inspire me every day. 💖<br>
+            Thank you for being you! Happy Women's Day! 🌺</p>
+        </div>
+    </div>
+
+    <!-- Music Player -->
+    <div class="music-player" onclick="playAudio()">🎵 Play Music</div>
+    <audio id="audioElement" loop>
+        <source src="ww.mp3" type="audio/mpeg">
+        Your browser does not support audio element.
+    </audio>
+
+    <script>
+        function playAudio() {
+            const audio = document.getElementById('audioElement');
+            audio.play();
+            document.querySelector('.music-player').innerHTML = "🎵 Music Playing";
+            document.querySelector('.music-player').style.pointerEvents = "none";
+            
+            audio.addEventListener('ended', function() {
+                document.querySelector('.music-player').innerHTML = "🎵 Play Music";
+                document.querySelector('.music-player').style.pointerEvents = "auto";
+            });
+        }
+    </script>
+</body>
+</html>
